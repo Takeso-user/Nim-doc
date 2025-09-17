@@ -1,4 +1,5 @@
 # Hot code reloading
+
 .. default-role:: code
 .. include:: rstcommon.rst
 
@@ -78,7 +79,6 @@ proc update*() =
   delay(16)
   renderer.present()
 ```
-
 
 ```nim
 # mymain.nim
