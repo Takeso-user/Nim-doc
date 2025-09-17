@@ -1,0 +1,58 @@
+Расширенные команды:
+- //compileToC, cc — компиляция проекта с помощью C code generator
+- //compileToCpp, cpp — компиляция проекта в C++ код
+- //compileToOC, objc — компиляция проекта в Objective C код
+- //js — компиляция проекта в Javascript
+- //nif — компиляция проекта в NIF
+- //e — запуск Nimscript файла
+- //md2html — конвертация Markdown файла в HTML
+  Используйте `--docCmd:skip`, чтобы пропустить компиляцию сниппетов
+- //rst2html — конвертация reStructuredText файла в HTML
+  Используйте `--docCmd:skip`, чтобы пропустить компиляцию сниппетов
+- //md2tex — конвертация Markdown файла в LaTeX
+- //rst2tex — конвертация reStructuredText файла в LaTeX
+- //doc2tex — извлечение документации в LaTeX файл
+- //jsondoc — извлечение документации в json файл
+- //ctags — создание файла тегов
+- //buildIndex — построение индекса для всей документации
+- //genDepend — генерация DOT-файла с графом зависимостей модулей
+- //dump — вывод всех определённых conditionals и путей поиска
+  См. также: --dump.format:json (удобно использовать с `| jq`)
+- //check — проверка проекта на синтаксис и семантику
+  Можно комбинировать с --defusages
+
+Проверки во время выполнения (см. -x):
+- --objChecks:on|off — включить/выключить проверки конверсии объектов
+- --fieldChecks:on|off — включить/выключить проверки вариантов полей
+- --rangeChecks:on|off — включить/выключить проверки диапазонов
+- --boundChecks:on|off — включить/выключить проверки границ
+- --overflowChecks:on|off — включить/выключить проверки переполнения/недостатка int
+- --floatChecks:on|off — включить/выключить проверки float (NaN/Inf)
+- --nanChecks:on|off — включить/выключить проверки NaN
+- --infChecks:on|off — включить/выключить проверки Inf
+
+Расширенные опции:
+- --defusages:FILE,LINE,COL — найти определение и все использования символа
+- -o:FILE, --out:FILE — задать имя выходного файла
+- --outdir:DIR — задать путь для записи выходного файла
+- --usenimcache — использовать `outdir=$$nimcache`, куда бы он ни разрешился после обработки всех опций
+- --stdout:on|off — вывод в stdout
+- --colors:on|off — включить/выключить цветные сообщения компилятора
+- --filenames:abs|canonical|legacyRelProj — настроить отображение имён файлов в сообщениях компилятора, по умолчанию `abs` (абсолютный путь)
+- --processing:dots|filenames|off — показывать файлы по мере их обработки компилятором Nim
+- --unitsep:on|off — использовать ASCII unit separator (31) между сообщениями об ошибках, полезно для IDE-инструментов
+- --declaredLocs:on|off — показывать места объявления в сообщениях
+- --spellSuggest:num — показывать максимум `num >= 0` вариантов исправления опечаток. Если `num` не указан (или `auto`), возвращается набор, определяемый реализацией.
+- --hints:on|off|list — `on|off` включает или выключает hints. `list` показывает, какие hints выбраны.
+- --hint:X:on|off — включить/выключить конкретный hint X. `hint:X` эквивалентно `hint:X:on`, как и для других подобных флагов. `all` — все hints (поддерживается только `all:off`).
+- --hintAsError:X:on|off — превращать конкретный hint X в ошибку
+- -w:on|off|list, --warnings:on|off|list — `on|off` включает или выключает warnings. `list` показывает, какие warnings выбраны.
+- --warning:X:on|off — включить/выключить конкретный warning X. `warning:X` эквивалентно `warning:X:on`. `all` — все warnings (поддерживается только `all:off`).
+- --warningAsError:X:on|off — превращать конкретный warning X в ошибку
+- --styleCheck:off|hint|error — выдавать hints или ошибки для идентификаторов Nim, не соответствующих официальному style guide
+  https://nim-lang.org/docs/nep1.html
+- --styleCheck:usages — проверять только единообразие написания идентификаторов, не проверять стиль объявлений
+- --showAllMismatches:on|off — показывать всех неподходящих кандидатов при разрешении перегрузки
+- --lib:PATH — задать путь к системной библиотеке
+- --import:PATH — добавить автоматически импортируемый модуль
+  См. также `patchFile` в nimscript для большей гибкости
